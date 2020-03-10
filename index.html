@@ -110,9 +110,10 @@
 				</div>
 				
 				<div class="video-wrap">
-					<video poster="images/use/video/iphone.jpg" preload="auto" loop autoplay controls="true" playsinline>
+					<video poster="images/use/video/iphone.jpg" preload="auto" autoplay loop muted playsinline controls="true">
 						<source src='images/use/video/Iphone - 2967.mp4' type='video/mp4' />
-						<source src='images/use/video/Iphone-2967.webm' type='video/webm' />
+						<source src='images/use/video/Iphone-2967.webm' type='video/webm' onerror="fallback(parentNode)"/>
+						<img src="images/use/video/iphone.jpg">
 					</video>
 					<div class="video-overlay" style="background-color: rgba(0,0,0,0.45);"></div>
 				</div>
@@ -455,6 +456,13 @@
 	$(function() {
 		$( "#side-navigation" ).tabs({ show: { effect: "fade", duration: 400 } });
 	});
+	
+	function fallback(video)
+	{
+	  var img = video.querySelector('img');
+	  if (img)
+	    video.parentNode.replaceChild(img, video);
+	}
 </script>
 
 </body>
