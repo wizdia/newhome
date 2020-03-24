@@ -1,4 +1,4 @@
-import App from "../App";
+import Index from "../pages/Index";
 import Router from 'vue-router'
 
 export default new Router({
@@ -6,8 +6,8 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'UserIndex',
-      component: App
+      name: 'Index',
+      component: Index
     }
   ]
 });
